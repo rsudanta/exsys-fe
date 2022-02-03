@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { getData } from '../../utils';
 import { useDispatch } from 'react-redux';
 import { setProfile } from '../../redux/action';
+import { IlSplashScreen } from '../../assets';
 
 const SplashScreen = ({ navigation }) => {
     const dispatch = useDispatch();
@@ -21,12 +22,19 @@ const SplashScreen = ({ navigation }) => {
         }, 2000);
     }, []);
     return (
-        <View>
-            <Text>Splash</Text>
+        <View style={styles.page}>
+            <IlSplashScreen />
         </View>
     );
 };
 
 export default SplashScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    page: {
+        backgroundColor: '#557DE5',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flex: 1
+    }
+});

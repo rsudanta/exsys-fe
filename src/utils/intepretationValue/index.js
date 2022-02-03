@@ -1,5 +1,5 @@
 export const intepretationValue = (value) => {
-    if (value === 1) {
+    if (value == 1) {
         return 'Pasti'
     }
     if (value >= 0.8 && value < 1) {
