@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { ButtonExsys, CovidStatus, Gap, Header } from '../../component';
-import { getQuestion } from '../../redux/action';
+import { getQuestion, setLoading } from '../../redux/action';
 import { getStatistic } from '../../redux/action/statistic';
 import { getData } from '../../utils';
 
@@ -23,7 +23,6 @@ const Home = ({ navigation }) => {
             setName(firstName);
         });
         dispatch(getStatistic());
-        dispatch(getQuestion());
     }, [profile]);
     return (
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -48,6 +47,8 @@ const Home = ({ navigation }) => {
                 <Text style={styles.subTitle}>Periksakan diri anda dengan sistem pakar COVID-19. Sistem akan memberikan persentase kemungkinan anda terkena COVID-19 berdasarkan nilai keyakinan pakar.</Text>
                 <Gap height={10} />
                 <ButtonExsys onPress={() => {
+                    dispatch(setLoading(true))
+                    dispatch(getQuestion());
                     navigation.navigate('Question')
                 }} />
             </View>

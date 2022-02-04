@@ -6,9 +6,11 @@ import { getData, showMessage } from '../../utils';
 export const getQuestion = () => dispatch => {
     axios.get(`${API_HOST.url}/gejala`)
         .then(res => {
+            dispatch(setLoading(false));
             dispatch({ type: 'SET_QUESTION', value: res.data.data });
         })
         .catch(err => {
+            dispatch(setLoading(false));
             console.log('err get question', err)
         })
 

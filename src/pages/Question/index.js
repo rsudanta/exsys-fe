@@ -11,7 +11,6 @@ const Question = ({ navigation }) => {
     const { question } = useSelector(state => state.questionReducer);
 
     useEffect(() => {
-        dispatch(getQuestion());
     }, [form]);
 
     const onSubmitPasti = () => {
