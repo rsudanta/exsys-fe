@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { Gap } from '../..';
-import { dateFormat } from '../../../utils';
+import { dateFormat, numberWithPoint } from '../../../utils';
 import { IcRefresh } from '../../../assets';
 
 const CovidStatus = ({ confirmed, active, recoveries, deaths, onRefresh }) => {
@@ -19,21 +19,21 @@ const CovidStatus = ({ confirmed, active, recoveries, deaths, onRefresh }) => {
                         <IcRefresh />
                     </TouchableOpacity>
                 </View>
-                <Text style={styles.mainCount}>{confirmed}</Text>
+                <Text style={styles.mainCount}>{numberWithPoint(confirmed)}</Text>
             </View>
             <Gap height={10} />
             <View style={styles.subStatusContainer} >
                 <View style={styles.subStatus}>
                     <Text style={styles.subStatusTitle}>Dirawat</Text>
-                    <Text style={styles.subStatusCount}>{active}</Text>
+                    <Text style={styles.subStatusCount}>{numberWithPoint(active)}</Text>
                 </View>
                 <View style={styles.subStatus}>
                     <Text style={styles.subStatusTitle}>Sembuh</Text>
-                    <Text style={styles.subStatusCount}>{recoveries}</Text>
+                    <Text style={styles.subStatusCount}>{numberWithPoint(recoveries)}</Text>
                 </View>
                 <View style={styles.subStatus}>
                     <Text style={styles.subStatusTitle}>Meninggal</Text>
-                    <Text style={styles.subStatusCount}>{deaths}</Text>
+                    <Text style={styles.subStatusCount}>{numberWithPoint(deaths)}</Text>
                 </View>
             </View>
         </View>

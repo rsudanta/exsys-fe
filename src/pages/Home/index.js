@@ -36,10 +36,10 @@ const Home = ({ navigation }) => {
             <Gap height={20} />
             <View style={styles.container}>
                 <CovidStatus
-                    confirmed={covidStat.positif}
-                    active={covidStat.dirawat}
-                    recoveries={covidStat.sembuh}
-                    deaths={covidStat.meninggal}
+                    confirmed={covidStat.infected ? covidStat.infected : '...'}
+                    active={covidStat.infected ? covidStat.infected - covidStat.recovered - covidStat.fatal : '...'}
+                    recoveries={covidStat.recovered ? covidStat.recovered : '...'}
+                    deaths={covidStat.fatal ? covidStat.fatal : '...'}
                     onRefresh={onRefresh}
                 />
                 <Gap height={40} />
